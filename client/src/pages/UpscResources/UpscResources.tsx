@@ -68,7 +68,7 @@ const ExamResources: React.FC = () => {
 
   // Get exam-specific configuration
   const getExamConfig = () => {
-    const examType = user?.examType || 'UPSC';
+    const examType = user?.examTypes?.[0] || 'UPSC';
     
     switch (examType) {
       case 'UPSC':
@@ -349,10 +349,10 @@ const ExamResources: React.FC = () => {
           <p className="text-gray-600 mt-1">
             {examConfig.description}
           </p>
-          {user?.examType && (
+          {user?.examTypes && user.examTypes.length > 0 && (
             <div className="mt-2">
               <Badge variant="secondary" className="text-sm">
-                Target Exam: {user.examType}
+                Target Exam: {user.examTypes[0]}
               </Badge>
             </div>
           )}
@@ -374,11 +374,11 @@ const ExamResources: React.FC = () => {
             </DialogTrigger>
             <DialogContent className="max-w-2xl">
               <DialogHeader>
-                <DialogTitle>Import {user?.examType || 'Exam'} Resource Templates</DialogTitle>
+                <DialogTitle>Import {user?.examTypes?.[0] || 'Exam'} Resource Templates</DialogTitle>
               </DialogHeader>
               <div className="space-y-4">
                 <p className="text-sm text-gray-600">
-                  Choose from our pre-compiled collection of essential {user?.examType || 'exam'} resources:
+                  Choose from our pre-compiled collection of essential {user?.examTypes?.[0] || 'exam'} resources:
                 </p>
                 
                 {templatesLoading ? (
@@ -568,9 +568,9 @@ const ExamResources: React.FC = () => {
           <Card>
             <CardContent className="text-center py-12">
               <BookOpen className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">No {user?.examType || 'Exam'} Resources</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">No {user?.examTypes?.[0] || 'Exam'} Resources</h3>
               <p className="text-gray-600 mb-4">
-                Start by importing our comprehensive {user?.examType || 'exam'} resource templates or add your own resources.
+                Start by importing our comprehensive {user?.examTypes?.[0] || 'exam'} resource templates or add your own resources.
               </p>
               <Button onClick={() => setShowTemplateDialog(true)}>
                 <Download className="h-4 w-4 mr-2" />
