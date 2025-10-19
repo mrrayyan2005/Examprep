@@ -18,10 +18,5 @@
       "src": "/(.*)",
       "dest": "client/dist/$1"
     }
-  ],
-  "functions": {
-    "client/dist/index.html": {
-      "includeFiles": "client/dist/**"
-    }
-  }
+  ]
 }
