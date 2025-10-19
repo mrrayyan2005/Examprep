@@ -12,7 +12,7 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "https://examprep-api.onrender.com/api/$1"
+      "dest": "https://examprep-uu5d.onrender.com/api/$1"
     },
     {
       "src": "/(.*)",
